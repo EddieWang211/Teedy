@@ -1,23 +1,27 @@
 pipeline {
     agent any
+    
     stages {
         stage('Build') {
             steps {
-                bat 'mvn -B -DskipTests clean package'
+                // 使用 Maven 运行测试，并生成 Surefire 报告
+                sh 'mvn clean test'
+                archiveArtifacts artifacts: 'target/surefire-reports/*.xml', fingerprint: true
             }
         }
-        stage('pmd') {
+        stage('Generate Javadoc') {
             steps {
-                bat 'mvn pmd:pmd'
+                // 使用 Maven 生成项目的 Javadoc
+                sh 'mvn javadoc:jar'
+                archiveArtifacts artifacts: 'target/site/apidocs/**', fingerprint: true
             }
         }
     }
-
+    
     post {
         always {
-            archiveArtifacts artifacts: '**/target/site/**', fingerprint: true
-            archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
-            archiveArtifacts artifacts: '**/target/**/*.war', fingerprint: true
+            // 清理构建产物
+            cleanWs()
         }
     }
 }
