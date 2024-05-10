@@ -5,14 +5,14 @@ pipeline {
         stage('Build') {
             steps {
                 // 使用 Maven 运行测试，并生成 Surefire 报告
-                sh 'mvn clean test'
+                bat 'mvn clean test'
                 archiveArtifacts artifacts: 'target/surefire-reports/*.xml', fingerprint: true
             }
         }
         stage('Generate Javadoc') {
             steps {
                 // 使用 Maven 生成项目的 Javadoc
-                sh 'mvn javadoc:jar'
+                bat 'mvn javadoc:jar'
                 archiveArtifacts artifacts: 'target/site/apidocs/**', fingerprint: true
             }
         }
