@@ -104,18 +104,40 @@
 
 
       <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-pmd-plugin</artifactId>
-            <version>3.15.0</version> <!-- 版本号根据需要进行调整 -->
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>pmd</goal> <!-- 执行 PMD 分析的目标 -->
-                        <goal>cpd</goal> <!-- 执行 CPD (Copy Paste Detection) 分析的目标 -->
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>      
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.0-M5</version> <!-- 确保使用适当的版本 -->
+    <executions>
+        <execution>
+            <id>run-tests</id>
+            <phase>test</phase>
+            <goals>
+                <goal>test</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <!-- 可选配置，指定测试的参数 -->
+    </configuration>
+</plugin>
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <version>3.3.1</version> <!-- 确保使用适当的版本 -->
+    <executions>
+        <execution>
+            <id>generate-javadoc</id>
+            <phase>package</phase>
+            <goals>
+                <goal>javadoc</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <!-- 可选配置，指定生成 Javadoc 的参数 -->
+    </configuration>
+</plugin>
+     
       
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
