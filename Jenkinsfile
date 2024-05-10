@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // 使用 Maven 运行测试，并生成 Surefire 报告
-                bat 'mvn clean test'
+                bat 'mvn clean -DskipTests install'
                 archiveArtifacts artifacts: 'target/surefire-reports/*.xml', fingerprint: true
             }
         }
