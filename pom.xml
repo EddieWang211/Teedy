@@ -103,8 +103,7 @@
       </plugin>
 
 
-<build>
-    <plugins>
+
         <!-- 添加 maven-pmd-plugin 插件 -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -118,8 +117,6 @@
                 </execution>
             </executions>
         </plugin>
-    </plugins>
-</build>
 
      
       
