@@ -107,9 +107,6 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-pmd-plugin</artifactId>
             <version>3.15.0</version> <!-- 版本号根据需要进行调整 -->
-            <configuration>
-                <targetJdk>1.8</targetJdk> <!-- 目标 JDK 版本，根据需要进行调整 -->
-            </configuration>
             <executions>
                 <execution>
                     <goals>
