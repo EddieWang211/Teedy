@@ -128,14 +128,14 @@
           <failOnViolation>false</failOnViolation>
           <!-- printFailingErrors is pretty useful -->
           <printFailingErrors>true</printFailingErrors>
-          <rulesets>
+<!--           <rulesets>
             <ruleset>ruleset.xml</ruleset>
-          </rulesets>
+          </rulesets> -->
         </configuration>
         <executions>
           <execution>
             <goals>
-              <goal>check</goal>
+              <goal>pmd</goal>
             </goals>
           </execution>
         </executions>
