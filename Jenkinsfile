@@ -16,11 +16,11 @@ pipeline {
         bat 'mvn javadoc:jar'
       }
     }
-    // stage('test') {
-    //   steps {
-    //     bat 'mvn clean install -DskipTests'
-    //   }
-    // }
+    stage('test') {
+      steps {
+        bat 'mvn clean install -DskipTests'
+      }
+    }
   }
 
   post {
